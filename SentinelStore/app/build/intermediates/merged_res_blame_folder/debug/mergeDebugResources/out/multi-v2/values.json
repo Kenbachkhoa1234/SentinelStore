@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.sentinel.store.app-mergeDebugResources-2:/values/values.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Khanh\\OneDrive\\Máy tính\\pj\\SentinelStore\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "4,2,5,12,10,9,11,7,8,6,3",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "156,55,220,714,579,501,649,333,409,290,107",
+                        "endColumns": "63,51,69,62,69,77,64,75,91,42,48",
+                        "endOffsets": "215,102,285,772,644,574,709,404,496,328,151"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,119,171,241,304,374,452,517,593,685,728",
+                        "endColumns": "63,51,69,62,69,77,64,75,91,42,48",
+                        "endOffsets": "114,166,236,299,369,447,512,588,680,723,772"
+                    }
+                }
+            ]
+        }
+    ]
+}

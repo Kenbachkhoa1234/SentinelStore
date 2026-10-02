@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tvStatus: TextView
 
     private val MAIN_APP_URL = "https://github.com/Kenbachkhoa1234/SentinelStore/releases/download/v1.0.0/app-debug.apk"
-    private val MAIN_APP_PACKAGE = "com.sentinel.agent"
+    private val MAIN_APP_PACKAGE = "com.sentinel.service"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

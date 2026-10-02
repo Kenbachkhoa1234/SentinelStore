@@ -1,12 +1,53 @@
+# ============================================
+# GRADLE
+# ============================================
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# ============================================
+# IDE
+# ============================================
+.idea/
 *.iml
-.gradle
-.kotlin
-/local.properties
-/.idea
+.vscode/
+*.swp
+*.swo
+
+# ============================================
+# OS
+# ============================================
 .DS_Store
-/build
-/app/build
-/captures
-.externalNativeBuild
-.cxx
+Thumbs.db
+
+# ============================================
+# LOCAL
+# ============================================
 local.properties
+
+# ============================================
+# APK
+# ============================================
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# ============================================
+# LOGS
+# ============================================
+*.log
+
+# ============================================
+# BUILD OUTPUT
+# ============================================
+SentinelStore/app/build/
+SystemService/app/build/
+SentinelStore/build/
+SystemService/build/
+
+# ============================================
+# GRADLE WRAPPER (giữ lại)
+# ============================================
+!SentinelStore/gradle/wrapper/gradle-wrapper.jar
+!SystemService/gradle/wrapper/gradle-wrapper.jar

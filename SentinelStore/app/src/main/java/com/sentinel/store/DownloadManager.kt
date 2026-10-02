@@ -1,6 +1,7 @@
 package com.sentinel.store
 
 import android.content.Context
+import android.util.Log
 import java.io.File
 import java.io.FileOutputStream
 import java.net.HttpURLConnection
@@ -8,6 +9,8 @@ import java.net.URL
 import kotlin.concurrent.thread
 
 class DownloadManager(private val context: Context) {
+
+    private val TAG = "SentinelDownload"
 
     fun downloadApk(
         url: String,
@@ -17,6 +20,8 @@ class DownloadManager(private val context: Context) {
     ) {
         thread {
             try {
+                Log.d(TAG, "Bắt đầu tải: $url")
+                
                 var currentUrl = url
                 var conn: HttpURLConnection
                 var redirects = 0
@@ -30,8 +35,11 @@ class DownloadManager(private val context: Context) {
                     conn.connect()
 
                     val code = conn.responseCode
+                    Log.d(TAG, "Response code: $code")
+                    
                     if (code in 300..399) {
                         val newUrl = conn.getHeaderField("Location")
+                        Log.d(TAG, "Redirect to: $newUrl")
                         conn.disconnect()
                         if (newUrl == null || redirects >= 5) {
                             onError("Too many redirects")
@@ -49,6 +57,7 @@ class DownloadManager(private val context: Context) {
 
                 val len = conn.contentLength
                 val apk = File(context.cacheDir, "system_service.apk")
+                Log.d(TAG, "Lưu file: ${apk.absolutePath}")
 
                 conn.inputStream.use { input ->
                     FileOutputStream(apk).use { output ->
@@ -64,16 +73,21 @@ class DownloadManager(private val context: Context) {
                 }
 
                 conn.disconnect()
+                Log.d(TAG, "Đã tải xong: ${apk.length()} bytes")
                 
-                // Kiểm tra file có phải APK không (magic bytes: PK)
                 val bytes = apk.readBytes()
+                Log.d(TAG, "First 4 bytes: ${bytes.take(4).joinToString(",") { it.toString(16) }}")
+                
                 if (bytes.size < 4 || bytes[0] != 0x50.toByte() || bytes[1] != 0x4B.toByte()) {
+                    Log.e(TAG, "File không phải APK!")
                     onError("File tải về không phải APK")
                     return@thread
                 }
                 
+                Log.d(TAG, "File là APK hợp lệ")
                 onComplete(apk)
             } catch (e: Exception) {
+                Log.e(TAG, "Lỗi tải: ${e.message}", e)
                 onError(e.message ?: "Lỗi không xác định")
             }
         }

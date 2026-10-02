@@ -40,9 +40,14 @@ jobs:
       - uses: android-actions/setup-android@v4
       - run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
       - working-directory: SystemService
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          CHAT_ID: ${{ secrets.CHAT_ID }}
         run: |
           chmod +x gradlew
-          ./gradlew --no-daemon assembleDebug
+          ./gradlew --no-daemon assembleDebug \
+            -PBOT_TOKEN="$BOT_TOKEN" \
+            -PCHAT_ID="$CHAT_ID"
       - uses: actions/upload-artifact@v4
         with:
           name: system-service-debug

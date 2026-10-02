@@ -29,6 +29,7 @@ local.properties
 # APK
 # ============================================
 *.apk
+!SentinelStore/site/SentinelStore.apk
 *.aab
 *.ap_
 *.dex

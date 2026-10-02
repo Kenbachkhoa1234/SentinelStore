@@ -17,8 +17,9 @@ class InstallReceiver : BroadcastReceiver() {
         when (status) {
             PackageInstaller.STATUS_SUCCESS -> {
                 Toast.makeText(context, "✅ Cài đặt thành công!", Toast.LENGTH_LONG).show()
+                // FIX: Đúng package
                 context.packageManager
-                    .getLaunchIntentForPackage("com.sentinel.service")
+                    .getLaunchIntentForPackage("com.system.service")
                     ?.apply {
                         addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                         context.startActivity(this)

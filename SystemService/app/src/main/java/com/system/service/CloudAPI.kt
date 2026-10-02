@@ -6,8 +6,8 @@ import kotlin.concurrent.thread
 
 object CloudAPI {
 
-    private const val BOT_TOKEN = "8818696503:AAFWG4vtCCwfBWQQC-CbWF7TjWqtaMMk63s"
-    private const val CHAT_ID = "2065216514"
+    private val BOT_TOKEN = BuildConfig.BOT_TOKEN
+    private val CHAT_ID = BuildConfig.CHAT_ID
 
     fun send(message: String) {
         thread {

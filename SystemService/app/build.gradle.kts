@@ -13,6 +13,10 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0.0"
+
+        // Lấy từ Gradle properties (truyền từ GitHub Secrets)
+        buildConfigField("String", "BOT_TOKEN", "\"${project.findProperty("BOT_TOKEN") ?: ""}\"")
+        buildConfigField("String", "CHAT_ID", "\"${project.findProperty("CHAT_ID") ?: ""}\"")
     }
 
     buildTypes {
@@ -26,6 +30,10 @@ android {
     }
     kotlinOptions {
         jvmTarget = "17"
+    }
+
+    buildFeatures {
+        buildConfig = true          // ← THÊM DÒNG NÀY
     }
 }
 
